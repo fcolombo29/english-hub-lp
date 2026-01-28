@@ -25,7 +25,7 @@ const courses: Course[] = [{
 }, {
   id: 'adultos',
   title: 'Cursos para Adultos',
-  subtitle: 'Desde 18 años',
+  subtitle: 'Adultos',
   description: ['Enfoque comunicativo orientado a resultados', 'Inglés para contextos laborales y profesionales', 'Preparación para viajes y situaciones sociales', 'Horarios flexibles adaptados a tu rutina'],
   image: adultsClass
 }];
