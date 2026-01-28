@@ -13,7 +13,7 @@ interface Course {
 const courses: Course[] = [{
   id: 'ninos',
   title: 'Cursos para Niños',
-  subtitle: 'De 6 a 12 años',
+  subtitle: 'Niños',
   description: ['Aprendizaje lúdico y dinámico adaptado a su edad', 'Primer contacto natural con el idioma inglés', 'Incorporación temprana de vocabulario y estructuras básicas', 'Desarrollo de la comprensión auditiva y expresión oral'],
   image: childrenClass
 }, {
