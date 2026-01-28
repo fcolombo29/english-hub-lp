@@ -19,7 +19,7 @@ const courses: Course[] = [{
 }, {
   id: 'jovenes',
   title: 'Cursos para Jóvenes',
-  subtitle: 'De 13 a 17 años',
+  subtitle: 'Jóvenes',
   description: ['Preparación para exámenes internacionales de Cambridge', 'Herramientas para el futuro académico y laboral', 'Enfoque en comunicación fluida y natural', 'Preparación para viajes y experiencias internacionales'],
   image: teensClass
 }, {
