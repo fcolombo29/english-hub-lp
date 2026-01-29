@@ -13,7 +13,7 @@ const slides = [
   {
     image: teensClass,
     title: 'Preparación para exámenes internacionales',
-    subtitle: 'Cambridge, TOEFL y más certificaciones oficiales',
+    subtitle: 'Te preparamos para que consigas las certificaciones oficiales',
   },
   {
     image: adultsClass,
