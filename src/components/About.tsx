@@ -45,9 +45,7 @@ const About = () => {
 
           {/* Text */}
           <div className="space-y-6">
-            <h3 className="text-2xl md:text-3xl font-display font-semibold text-foreground">
-              Tu segunda lengua empieza acá
-            </h3>
+            <h3 className="text-2xl md:text-3xl font-display text-foreground font-extrabold">Empezá a desarrollar tu Segunda Lengua con nosotros...</h3>
             <p className="text-muted-foreground leading-relaxed">
               Desde 1987, en Segunda Lengua nos dedicamos a enseñar inglés con pasión y profesionalismo. 
               Nuestro equipo de docentes altamente capacitados trabaja con grupos reducidos para garantizar 
