@@ -78,7 +78,7 @@ const CourseCard = ({
 
         <div className="flex items-center gap-2 text-primary font-semibold pt-4 border-t border-border">
           <Phone className="w-4 h-4" />
-          <span>21Consultas: (0221) 423-5678</span>
+          <span>Consultas: (0221) 421-7061</span>
         </div>
       </div>
     </div>;
