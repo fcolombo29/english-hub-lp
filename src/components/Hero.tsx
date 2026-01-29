@@ -1,15 +1,10 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import heroImage from '@/assets/hero-classroom.jpg';
 import childrenClass from '@/assets/children-class.jpg';
 import teensClass from '@/assets/teens-class.jpg';
+import adultsClass from '@/assets/adults-class.jpg';
 
 const slides = [
-  {
-    image: heroImage,
-    title: 'Aprendé inglés con nosotros',
-    subtitle: 'Más de 35 años formando estudiantes en La Plata',
-  },
   {
     image: childrenClass,
     title: 'Cursos para todas las edades',
@@ -19,6 +14,11 @@ const slides = [
     image: teensClass,
     title: 'Preparación para exámenes internacionales',
     subtitle: 'Cambridge, TOEFL y más certificaciones oficiales',
+  },
+  {
+    image: adultsClass,
+    title: 'Aprendé inglés con nosotros',
+    subtitle: 'Más de 35 años formando estudiantes en La Plata',
   },
 ];
 
