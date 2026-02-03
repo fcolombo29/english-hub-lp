@@ -22,14 +22,17 @@ const features = [{
 
 const useCountUp = (end: number, duration: number = 1500) => {
   const [count, setCount] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && !hasStarted) {
-          setHasStarted(true);
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+          setCount(0); // Reset count when leaving viewport
         }
       },
       { threshold: 0.5 }
@@ -40,12 +43,14 @@ const useCountUp = (end: number, duration: number = 1500) => {
     }
 
     return () => observer.disconnect();
-  }, [hasStarted]);
+  }, []);
 
   useEffect(() => {
-    if (!hasStarted) return;
+    if (!isVisible) return;
 
     let startTime: number;
+    let animationId: number;
+    
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
       const elapsed = currentTime - startTime;
@@ -56,12 +61,14 @@ const useCountUp = (end: number, duration: number = 1500) => {
       setCount(Math.floor(easeOut * end));
 
       if (progress < 1) {
-        requestAnimationFrame(animate);
+        animationId = requestAnimationFrame(animate);
       }
     };
 
-    requestAnimationFrame(animate);
-  }, [hasStarted, end, duration]);
+    animationId = requestAnimationFrame(animate);
+    
+    return () => cancelAnimationFrame(animationId);
+  }, [isVisible, end, duration]);
 
   return { count, ref };
 };
