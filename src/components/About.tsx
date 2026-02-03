@@ -1,5 +1,7 @@
 import { Award, Users, BookOpen, Globe } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 import instituteBuilding from '@/assets/institute-building.jpg';
+
 const features = [{
   icon: Award,
   title: 'Desde 1987',
@@ -17,7 +19,55 @@ const features = [{
   title: 'Exámenes internacionales',
   description: 'Preparación oficial para Cambridge y más'
 }];
+
+const useCountUp = (end: number, duration: number = 1500) => {
+  const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasStarted) {
+          setHasStarted(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasStarted]);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
+    let startTime: number;
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smooth deceleration
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(easeOut * end));
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [hasStarted, end, duration]);
+
+  return { count, ref };
+};
+
 const About = () => {
+  const { count, ref } = useCountUp(35, 1500);
   return <section id="nosotros" className="section-padding bg-cream">
       <div className="container-narrow">
         {/* Header */}
@@ -37,8 +87,11 @@ const About = () => {
           {/* Image */}
           <div className="relative">
             <img alt="Instituto Segunda Lengua" className="w-full h-[400px] object-cover rounded-lg shadow-xl" src="/lovable-uploads/338859e3-a85f-4e60-9081-67c76ad36a4a.jpg" />
-            <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded-lg shadow-lg hidden md:block">
-              <p className="text-4xl font-display font-bold">35+</p>
+            <div 
+              ref={ref}
+              className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded-lg shadow-lg hidden md:block"
+            >
+              <p className="text-4xl font-display font-bold">{count}+</p>
               <p className="text-sm">años de experiencia</p>
             </div>
           </div>
