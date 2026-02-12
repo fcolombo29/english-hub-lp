@@ -91,10 +91,10 @@ const Contact = () => {
               <div className="mt-8 pt-6 border-t border-border">
                 <p className="font-medium text-foreground mb-4">Seguinos en redes</p>
                 <div className="flex gap-4">
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors" aria-label="Facebook">
+                  <a href="https://www.facebook.com/segundalengua.lp" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors" aria-label="Facebook">
                     <Facebook className="w-5 h-5" />
                   </a>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors" aria-label="Instagram">
+                  <a href="https://www.instagram.com/segunda_lengua/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors" aria-label="Instagram">
                     <Instagram className="w-5 h-5" />
                   </a>
                 </div>
